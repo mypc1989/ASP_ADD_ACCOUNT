@@ -1,0 +1,56 @@
+﻿@model MD_ACC.Models.T_STATION
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<head>
+    <title>
+        Chi tiết @Html.DisplayFor(model => model.StationName)
+    </title>
+</head>
+
+<section class="pcoded-main-container">
+    <div class="pcoded-content">
+        <div>
+            <h4>Bảng Station</h4>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.StationName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.StationName)
+                </dd>
+                <hr />
+                <dt>
+                    @Html.DisplayNameFor(model => model.StationID)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.StationID)
+                </dd>
+                <hr />
+                <dt>
+                    @Html.DisplayNameFor(model => model.CompanyID)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.CompanyID)
+                </dd>
+
+            </dl>
+        </div>
+        <div class="col-12 d-flex justify-content-between mb-3">
+            <a href="@Url.Action("Index", "Station")" class="btn btn-primary text-white">Back to List</a>
+
+            <button class="btn btn-primary btn-sm edit">
+                <a href='@Url.Action("Edit", new { id = @Html.DisplayFor(model => model.PK_ID) })' class="text-white text-decoration-none">Edit</a>
+            </button>
+
+        </div>
+    </div>
+</section>
+    
+        

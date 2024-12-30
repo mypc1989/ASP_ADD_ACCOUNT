@@ -1,0 +1,146 @@
+﻿@model MD_ACC.Models.T_USER_APP
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<head>
+    <title>Xem thông tin</title>
+    <style>
+        /* Đảm bảo màu chữ luôn trắng */
+        button.edit a {
+            color: white !important; /* Màu trắng cho liên kết */
+            text-decoration: none; /* Bỏ gạch chân */
+        }
+
+        /* Đổi màu khi hover */
+        button.edit a:hover {
+            color: #f8f9fa; /* Màu trắng nhạt hơn khi hover */
+        }
+
+    </style>
+</head>
+
+<section class="pcoded-main-container">
+    <div class="pcoded-content">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Chỉnh sửa thông tin tài khoản</h5>
+                </div>
+                <div class="card-body">
+
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.UserName)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.UserName)
+                        </dd>
+
+                        <hr />
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Password)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Password)
+                        </dd>
+                        <hr />
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Email)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Email)
+                        </dd>
+
+                        <hr />
+
+
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.FullName)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.FullName)
+                        </dd>
+                        <hr />
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.PhoneNumber)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.PhoneNumber)
+                        </dd>
+                        <hr />
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.State)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.State)
+                        </dd>
+                        <hr />
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.StationID)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.StationID)
+                        </dd>
+                        <hr />
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.CompanyID)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.CompanyID)
+                        </dd>
+                        <hr />
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.SV_ID)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.SV_ID)
+                        </dd>
+                        <hr />
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.NStationID)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.NStationID)
+                        </dd>
+
+                    </dl>
+                    <div class="col-12 d-flex justify-content-between mb-3">
+                        <a href="@Url.Action("Index", "UserApp")" class="btn btn-primary text-white">Back to List</a>
+                        
+                        <button class="btn btn-primary btn-sm edit">
+                            <a href='@Url.Action("Edit", new { id = @Html.DisplayFor(model => model.PK_ID) })' class="text-white text-decoration-none">Edit</a>
+                        </button>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+

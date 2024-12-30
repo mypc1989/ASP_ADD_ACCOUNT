@@ -1,0 +1,136 @@
+﻿@model IEnumerable<MD_ACC.Models.T_COMPANY>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<head>
+    <title>Thông tin Công Ty</title>
+
+    <!-- CSS Libraries -->
+    <link rel="stylesheet" href="~/Content/modules/datatables/datatables.min.css">
+    <link rel="stylesheet" href="~/Content/modules/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="~/Content/modules/datatables/Select-1.2.4/css/select.bootstrap4.min.css">
+    <style>
+        /* Đảm bảo tất cả các icon trong nút có màu trắng */
+        button i {
+            color: white;
+        }
+
+        /* Tùy chọn thêm: thay đổi màu khi hover */
+        button:hover i {
+            color: white; /* Màu trắng khi hover */
+        }
+    </style>
+</head>
+
+
+<section class="pcoded-main-container">
+    <div class="pcoded-content">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Tìm & Thêm Thông Tin Công Ty</h5>
+                </div>
+                <div class="card-body">
+                    <form>
+                        <div class="row">
+
+
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label class="floating-label" for="Text">Từ Khóa</label>
+                                    <input type="text" class="form-control" id="search" placeholder="Tìm kiêm thông tin">
+
+                                </div>
+                            </div>
+
+                            <div class="col-12 d-flex justify-content-between mb-3">
+
+                                <button type="button" id="btn_search" class="btn btn-primary" onclick="searchTable()">Tìm Kiếm</button>
+
+                                <a href="@Url.Action("Create", "Company")" class="btn btn-primary text-white">Create New</a>
+                            </div>
+
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Bảng thống kê các công ty</h5>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped" id="table-infoCty">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">
+                                        STT
+                                    </th>
+                                    <th>Mã Số Thuế</th>
+                                    <th>Tên Công Ty</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{
+                                    int counter = 1; // Biến cục bộ để tạo số tăng dần
+                                }
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @counter
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.MST)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.TenCongTy)
+                                        </td>
+                                        <td>
+                                            <button class="btn btn-success btn-sm edit">@Html.Raw($"<a href='{Url.Action("Edit", new { id = item.MST })}'><i class='fas fa-edit'></i></a>")</button> |
+                                            <button class="btn btn-info btn-sm detail">@Html.Raw($"<a href='{Url.Action("Details", new { id = item.MST })}'><i class='fas fa-info'></i></a>")</button> |
+                                            <button class="btn btn-danger btn-sm delete">@Html.Raw($"<a href='{Url.Action("Delete", new { id = item.MST })}'><i class='fas fa-trash'></i></a>")</button>
+                                        </td>
+                                    </tr>
+                                    counter++; // Tăng giá trị của biến sau mỗi hàng
+                                }
+                            </tbody>
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    function searchTable() {
+
+        const keyword = document.getElementById('search').value.toLowerCase();
+        const rows = document.querySelectorAll('#table-infoCty tbody tr');
+
+        rows.forEach(row => {
+            const cells = row.getElementsByTagName('td');
+            let found = false;
+
+
+            for (let cell of cells) {
+                if (cell.textContent.toLowerCase().includes(keyword)) {
+                    found = true;
+                    break;
+                }
+            }
+
+            row.style.display = found ? '' : 'none';
+        });
+    }
+</script>
+
+

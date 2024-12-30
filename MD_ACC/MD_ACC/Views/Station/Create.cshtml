@@ -1,0 +1,248 @@
+﻿
+@model MD_ACC.Models.CreateStationViewModel
+
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<head>
+    <title>Thêm thông tin</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+    <link href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css" rel="stylesheet" />
+</head>
+
+<section class="pcoded-main-container">
+    <div class="pcoded-content">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Thêm thông tin Station</h3>
+                </div>
+                <div class="card-body">
+
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                        <h5>Thông tin User App</h5>
+                        <br />
+                        <div class="row">
+
+                            <div class="form-group col-sm-4">
+                                @Html.LabelFor(model => model.UserApp.PK_ID, htmlAttributes: new { @class = "control-label" })
+                                @Html.EditorFor(model => model.UserApp.PK_ID, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.UserApp.PK_ID, "", new { @class = "text-danger" })
+                            </div>
+
+                            <div class="form-group col-sm-4">
+                                @Html.LabelFor(model => model.UserApp.UserName, htmlAttributes: new { @class = "control-label" })
+                                @Html.EditorFor(model => model.UserApp.UserName, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.UserApp.UserName, "", new { @class = "text-danger" })
+                            </div>
+
+                            <div class="form-group col-sm-4">
+                                @Html.LabelFor(model => model.UserApp.Password, htmlAttributes: new { @class = "control-label" })
+                                @Html.EditorFor(model => model.UserApp.Password, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.UserApp.Password, "", new { @class = "text-danger" })
+                            </div>
+
+                            <div class="form-group col-sm-4">
+                                @Html.LabelFor(model => model.UserApp.Email, htmlAttributes: new { @class = "control-label " })
+                                @Html.EditorFor(model => model.UserApp.Email, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.UserApp.Email, "", new { @class = "text-danger" })
+                            </div>
+
+
+                            <div class="form-group col-sm-4">
+                                @Html.LabelFor(model => model.UserApp.FullName, htmlAttributes: new { @class = "control-label" })
+                                @Html.EditorFor(model => model.UserApp.FullName, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.UserApp.FullName, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group col-sm-4">
+                                @Html.LabelFor(model => model.UserApp.PhoneNumber, htmlAttributes: new { @class = "control-label" })
+                                @Html.EditorFor(model => model.UserApp.PhoneNumber, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.UserApp.PhoneNumber, "", new { @class = "text-danger" })
+                            </div>
+
+                            <div class="form-group col-sm-4">
+                                @Html.LabelFor(model => model.UserApp.State, htmlAttributes: new { @class = "control-label" })
+                                @Html.EditorFor(model => model.UserApp.State, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.UserApp.State, "", new { @class = "text-danger" })
+                            </div>
+
+                            <div class="form-group col-sm-4">
+                                @Html.LabelFor(model => model.UserApp.StationID, htmlAttributes: new { @class = "control-label" })
+                                @Html.EditorFor(model => model.UserApp.StationID, new { htmlAttributes = new { @class = "form-control", id = "StationID" } })
+                                @Html.ValidationMessageFor(model => model.UserApp.StationID, "", new { @class = "text-danger" })
+                            </div>
+
+                            <div class="form-group col-sm-4">
+                                @Html.LabelFor(model => model.UserApp.CompanyID, htmlAttributes: new { @class = "control-label " })
+                                @Html.EditorFor(model => model.UserApp.CompanyID, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.UserApp.CompanyID, "", new { @class = "text-danger" })
+                            </div>
+
+                            <div class="form-group col-sm-4">
+                                @Html.LabelFor(model => model.UserApp.SV_ID, htmlAttributes: new { @class = "control-label " })
+                                @Html.EditorFor(model => model.UserApp.SV_ID, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.UserApp.SV_ID, "", new { @class = "text-danger" })
+                            </div>
+
+                            <div class="form-group col-sm-4">
+                                @Html.LabelFor(model => model.UserApp.NStationID, htmlAttributes: new { @class = "control-label" })
+                                <input type="text" id="UserApp_NStationID" class="form-control" readonly />
+                                @Html.ValidationMessageFor(model => model.UserApp.NStationID, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <br />
+                        <h5> Thông tin Station</h5>
+                        <div class="row">
+
+
+                            <div class="form-group col-sm-6">
+                                @Html.LabelFor(model => model.Station.StationName, htmlAttributes: new { @class = "control-label" })
+                                @Html.EditorFor(model => model.Station.StationName, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Station.StationName, "", new { @class = "text-danger" })
+                            </div>
+
+                            <div class="form-group col-sm-4">
+                                @Html.LabelFor(model => model.UserApp.StationID, htmlAttributes: new { @class = "control-label" })
+                                @Html.EditorFor(model => model.UserApp.StationID, new { htmlAttributes = new { @class = "form-control", id = "UserApp_StationID" } })
+                                @Html.ValidationMessageFor(model => model.UserApp.StationID, "", new { @class = "text-danger" })
+                            </div>
+
+                            <div class="form-group col-sm-12">
+                                @Html.LabelFor(model => model.Station.CompanyID, htmlAttributes: new { @class = "control-label" })
+                                <input type="text" id="company-autocomplete" class="form-control" placeholder="Nhập MST hoặc tên công ty" />
+                                @Html.HiddenFor(model => model.Station.CompanyID) <!-- Hidden input để lưu giá trị MST -->
+                                @Html.ValidationMessageFor(model => model.Station.CompanyID, "", new { @class = "text-danger" })
+                            </div>
+
+                        </div>
+                        <hr />
+
+                        <h5>Chọn số lượng Nozzle</h5>
+                        <div class="form-group">
+                            <select id="nozzle-count" class="form-control">
+                                <option value="0">Chọn số lượng</option>
+                                <option value="1">1 Vòi Bơm</option>
+                                <option value="2">2 Vòi Bơm</option>
+                                <option value="3">3 Vòi Bơm</option>
+                                <option value="4">4 Vòi Bơm</option>
+                                <option value="5">5 Vòi Bơm</option>
+                                <option value="6">6 Vòi Bơm</option>
+                                <option value="7">7 Vòi Bơm</option>
+                                <option value="8">8 Vòi Bơm</option>
+                            </select>
+                        </div>
+
+                        <div id="nozzle-container">
+                            <!-- Các ô nhập liệu Nozzle sẽ được thêm vào đây -->
+                        </div>
+
+
+                        <div class="col-12 d-flex justify-content-between mb-3">
+                            <a href="@Url.Action("Index", "Station")" class="btn btn-primary text-white">Back to List</a>
+                            <button type="submit" class="btn btn-primary text-white">Create</button>
+                        </div>
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // Lắng nghe sự kiện khi người dùng nhập vào StationID
+        $('#UserApp_StationID').on('input', function () {
+            const stationValue = $(this).val(); // Lấy giá trị của StationID
+            $('#UserApp_NStationID').val(stationValue); // Gán giá trị vào NStationID
+        });
+    });
+</script>
+<script>
+    $(document).ready(function () {
+
+        $("#company-autocomplete").autocomplete({
+            source: '@Url.Action("GetCompanies", "Station")',
+            minLength: 2,
+            select: function (event, ui) {
+                $("#company-autocomplete").val(ui.item.label); // Hiển thị nhãn
+                $("input[name='CompanyID']").val(ui.item.value); // Gán giá trị thực (MST)
+                return false;
+            }
+        });
+    });
+    $("#company-autocomplete").autocomplete({
+        source: function (request, response) {
+            console.log("Request term:", request.term); // Log từ khóa tìm kiếm
+            $.ajax({
+                url: '@Url.Action("GetCompanies", "Station")',
+                dataType: "json",
+                data: { term: request.term },
+                success: function (data) {
+                    console.log("Response data:", data); // Log dữ liệu trả về
+                    response(data);
+                },
+                error: function (xhr, status, error) {
+                    console.error("Error:", error); // Log lỗi nếu có
+                }
+            });
+        },
+        minLength: 2,
+        select: function (event, ui) {
+            console.log("Selected item:", ui.item); // Log mục được chọn
+            $("#company-autocomplete").val(ui.item.label);
+            $("input[name='CompanyID']").val(ui.item.value);
+            return false;
+        }
+    });
+
+</script>
+<script>
+    document.getElementById("nozzle-count").addEventListener("change", function () {
+        var container = document.getElementById("nozzle-container");
+        var count = parseInt(this.value); // Lấy giá trị số lượng từ select
+        container.innerHTML = ""; // Xóa tất cả các ô nhập liệu cũ
+
+        for (var i = 0; i < count; i++) {
+            var newRow = `
+            <div class="row">
+                <div class="form-group col-sm-4">
+                    <label for="Nozzles_${i}__StationID">Station ID</label>
+                    <input class="form-control" id="Nozzles_${i}__StationID" name="Nozzles[${i}].StationID" type="text" />
+                </div>
+                <div class="form-group col-sm-4">
+                    <label for="Nozzles_${i}__FuelType">Fuel Type</label>
+                    <input class="form-control" id="Nozzles_${i}__FuelType" name="Nozzles[${i}].FuelType" type="text" />
+                </div>
+                <div class="form-group col-sm-4">
+                    <label for="Nozzles_${i}__NName">Name</label>
+                    <input class="form-control" id="Nozzles_${i}__NName" name="Nozzles[${i}].NName" type="text" />
+                </div>
+                <div class="form-group col-sm-4">
+                    <label for="Nozzles_${i}__NOZZLE_ID">NOZZLE ID</label>
+                    <input class="form-control" id="Nozzles_${i}__NOZZLE_ID" name="Nozzles[${i}].NOZZLE_ID" type="text" />
+                </div>
+                <div class="form-group col-sm-4">
+                    <label for="Nozzles_${i}__ID">ID</label>
+                    <input class="form-control" id="Nozzles_${i}__ID" name="Nozzles[${i}].ID" type="text" />
+                </div>
+            </div> <hr/>`;
+            container.insertAdjacentHTML("beforeend", newRow);
+        }
+    });
+
+</script>
+
+
+
+
+
+

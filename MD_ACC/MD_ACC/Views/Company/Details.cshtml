@@ -1,0 +1,45 @@
+﻿@model MD_ACC.Models.T_COMPANY
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<head>
+    <title>
+        Chi tiết @Html.DisplayFor(model => model.TenCongTy)
+    </title>
+</head>
+
+<section class="pcoded-main-container">
+    <div class="pcoded-content">
+        <div>
+            <h4>Bảng Công Ty</h4>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.TenCongTy)
+                </dt>
+
+                <hr />
+
+                <dd>
+                    @Html.DisplayFor(model => model.TenCongTy)
+                </dd>
+
+            </dl>
+        </div>
+        <br />
+        <div class="col-12 d-flex justify-content-between mb-3">
+            <a href="@Url.Action("Index", "Company")" class="btn btn-primary text-white">Back to List</a>
+
+            <button class="btn btn-primary btn-sm edit">
+                <a href='@Url.Action("Edit", new { id = @Html.DisplayFor(model => model.MST) })' class="text-white text-decoration-none">Edit</a>
+            </button>
+
+        </div>
+        
+    </div>
+</section>
+    
+
+        

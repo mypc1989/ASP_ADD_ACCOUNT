@@ -1,0 +1,153 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="">
+    <meta name="author" content="Phoenixcoded" />
+
+    <!-- vendor css -->
+    <link rel="stylesheet" href="~/Content/assets/css/style.css">
+</head>
+<!-- [ Main Content ] start -->
+
+<body class="">
+    <!-- [ navigation menu ] start -->
+    <nav class="pcoded-navbar  ">
+        <div class="navbar-wrapper  ">
+            <div class="navbar-content scroll-div ">
+                <div class="">
+                    <div class="main-menu-header">
+                        <img class="img-radius" src="~/Content/images/user.png" alt="User-Profile-Image">
+                        <div class="user-details">
+                            <span>Admin</span>
+                            <div id="more-details">More<i class="fa fa-chevron-down m-l-5"></i></div>
+                        </div>
+                    </div>
+                    <div class="collapse" id="nav-user-link">
+                        <ul class="list-unstyled">
+                            <li class="list-group-item">
+                                <a href="#!">
+                                    <i class="feather icon-settings m-r-5"></i>Settings
+                                </a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="auth-normal-sign-in.html">
+                                    <i class="feather icon-log-out m-r-5"></i>Logout
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+
+                <ul class="nav pcoded-inner-navbar">
+                    <li class="nav-item pcoded-menu-caption">
+                        <label>Home</label>
+                    </li>
+                    <li class="nav-item @(ViewContext.RouteData.Values["Controller"].ToString() == "Home" && ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")">
+                        <a href="@Url.Action("Index", "Home")" class="nav-link d-flex align-items-center">
+                            <span class="pcoded-micon">
+                                <i class="feather icon-home"></i>
+                            </span>
+                            <span class="pcoded-mtext ms-2">Trang Chủ</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item pcoded-menu-caption">
+                        <label>Infor</label>
+                    </li>
+                    <li class="nav-item @(ViewContext.RouteData.Values["Controller"].ToString() == "Company" && ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")">
+                        <a href="@Url.Action("Index", "Company")" class="nav-link d-flex align-items-center">
+                            <span class="pcoded-micon">
+                                <i class="feather icon-file-text"></i>
+                            </span>
+                            <span class="pcoded-mtext ms-2">Công Ty</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item pcoded-menu-caption">
+                        <label>Station</label>
+                    </li>
+                    <li class="nav-item @(ViewContext.RouteData.Values["Controller"].ToString() == "Station" && ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")">
+                        <a href="@Url.Action("Index", "Station")" class="nav-link d-flex align-items-center">
+                            <span class="pcoded-micon">
+                                <i class="feather icon-package"></i>
+                                
+                            </span>
+                            <span class="pcoded-mtext ms-2">Trạm Bơm</span>
+                        </a>
+                    </li>
+
+
+
+
+                    <li class="nav-item pcoded-menu-caption">
+                        <label>Account</label>
+                    </li>
+
+                    <li class="nav-item @(ViewContext.RouteData.Values["Controller"].ToString() == "UserApp" && ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "") ">
+                        <a href="@Url.Action("Index", "UserApp")" class="nav-link d-flex align-items-center">
+                            <span class="pcoded-micon">
+                                <i class="feather icon-user"></i>
+                            </span>
+                            <span class="pcoded-mtext ms-2">Tài Khoản</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item pcoded-menu-caption">
+                        <label>Devices</label>
+                    </li>
+                    <li class="nav-item pcoded-hasmenu">
+                        <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-box"></i></span><span class="pcoded-mtext">Datalogger</span></a>
+                        <ul class="pcoded-submenu">
+                            <li><a href="#">Quản lý địa điểm</a></li>
+                            <li><a href="bc_button.html">Quản lý cài đặt</a></li>
+                            <li><a href="bc_badges.html">Danh mục DMA</a></li>
+                            <li><a href="bc_breadcrumb-pagination.html">Thông tin cảnh báo</a></li>
+                            <li><a href="bc_card.html">Thống kê dữ liệu</a></li>
+                            <li><a href="bc_collapse.html">Bảng dữ liệu Scada</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- [ navigation menu ] end -->
+    <!-- [ Header ] start -->
+    <header id="main-header" class="navbar pcoded-header navbar-expand-lg navbar-light header-dark">
+        <div class="m-header">
+            <a class="mobile-menu" id="mobile-collapse" href="#!"><span></span></a>
+            <a href="#!" class="b-brand">
+                <!-- <img src="images/Untitled.png" alt="" class="logo"> -->
+                <h4 style="color: white;">Manager</h4>
+            </a>
+        </div>
+    </header>
+    <!-- [ Header ] end -->
+    <!-- [ Main Content ] start -->
+    @RenderBody()
+
+
+    <!-- Required Js -->
+    <script src="~/Content/js/flat/vendor-all.min.js"></script>
+    <script src="~/Content/js/flat/plugins/bootstrap.min.js"></script>
+    <script src="~/Content/js/flat/pcoded.js"></script>
+
+    <!-- JS Libraies -->
+    <script src="~/Content/js/datatables/datatables.min.js"></script>
+    <script src="~/Content/js/datatables/dataTables.bootstrap4.min.js"></script>
+    <script src="~/Content/js/datatables/dataTables.select.min.js"></script>
+    <script src="~/Content/js/datatables/jquery-ui.min.js"></script>
+    <!-- Page Specific JS File -->
+    <script src="~/Content/js/datatables/modules-datatables.js"></script>
+
+
+
+
+</body>
+
+</html>

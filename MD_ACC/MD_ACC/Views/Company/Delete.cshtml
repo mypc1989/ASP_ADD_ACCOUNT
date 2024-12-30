@@ -1,0 +1,67 @@
+﻿@model MD_ACC.Models.T_COMPANY
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<head>
+    <title>Xóa thông tin</title>
+</head>
+
+<section class="pcoded-main-container">
+    <div class="pcoded-content">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Chỉnh sửa thông tin tài khoản</h5>
+                </div>
+                <div class="card-body">
+
+                    <div class="bd-example-modal mb-4">
+                        <div class="modal" tabindex="-1" role="dialog">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">Are you sure you want to delete this?</h5>
+
+                                    </div>
+
+                                    <div class="modal-body">
+                                        <dl class="dl-horizontal">
+                                            <dt>
+                                                @Html.DisplayNameFor(model => model.TenCongTy)
+                                            </dt>
+
+                                            <dd>
+                                                @Html.DisplayFor(model => model.TenCongTy)
+                                            </dd>
+
+                                        </dl>
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        @using (Html.BeginForm())
+                                        {
+                                            @Html.AntiForgeryToken()
+
+                                            <div class="form-actions no-color">
+                                                <a href="@Url.Action("Index", "Company")" class="btn btn-primary text-white">Trở Về</a>
+                                                <button type="submit" value="Delete" class="btn  btn-secondary" data-dismiss="modal">Xóa</button>
+                                            </div>
+                                        }
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+

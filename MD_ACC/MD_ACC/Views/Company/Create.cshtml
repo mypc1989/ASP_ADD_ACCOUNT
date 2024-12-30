@@ -1,0 +1,57 @@
+﻿@model MD_ACC.Models.T_COMPANY
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<head>
+    <title>Thêm thông tin</title>
+</head>
+
+<section class="pcoded-main-container">
+    <div class="pcoded-content">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Thêm thông tin công ty</h5>
+                </div>
+                <div class="card-body">
+
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                    <div class="row">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group col-sm-12">
+                            @Html.LabelFor(model => model.MST, htmlAttributes: new { @class = "control-label" })
+                            @Html.EditorFor(model => model.MST, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.MST, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group col-sm-12">
+                            @Html.LabelFor(model => model.TenCongTy, htmlAttributes: new { @class = "control-label" })
+                            @Html.EditorFor(model => model.TenCongTy, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.TenCongTy, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="col-12 d-flex justify-content-between mb-3">
+                            <a href="@Url.Action("Index", "Company")" class="btn btn-primary text-white">Back to List</a>
+                            <button type="submit" class="btn btn-primary text-white">Create</button>
+                        </div>
+
+                        
+                    </div>
+                    }
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
