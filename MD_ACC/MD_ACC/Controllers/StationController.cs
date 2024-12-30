@@ -66,46 +66,7 @@ namespace MD_ACC.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
 
-        /*[HttpPost]
-        public ActionResult Create(CreateStationViewModel model)
-        {
-            if (ModelState.IsValid)
-            {
-                using (var context = new Md_Info_Cty())
-                {
-                    using (var transaction = context.Database.BeginTransaction())
-                    {
-                        try
-                        {
-                            // Thêm Station
-                            context.T_STATION.Add(model.Station);
-
-                            // Thêm UserApp
-                            context.T_USER_APP.Add(model.UserApp);
-
-                            // Thêm danh sách Nozzle
-                            foreach (var nozzle in model.Nozzles)
-                            {
-                                context.T_NOZZLE.Add(nozzle);
-                            }
-
-                            // Lưu thay đổi
-                            context.SaveChanges();
-                            transaction.Commit();
-
-                            return RedirectToAction("Index");
-                        }
-                        catch (Exception ex)
-                        {
-                            transaction.Rollback();
-                            ModelState.AddModelError("", $"Lỗi khi lưu dữ liệu: {ex.Message}");
-                        }
-                    }
-                }
-            }
-
-            return View(model);
-        }*/
+        
         [HttpPost]
         public ActionResult Create(CreateStationViewModel model)
         {
@@ -123,10 +84,7 @@ namespace MD_ACC.Controllers
 
                             // Lấy ID vừa được tạo cho T_STATION
                             int stationId = model.Station.PK_ID;
-
-                            // Thêm UserApp vào T_USER_APP (nếu cần)
-                            //model.UserApp.StationID = stationId; // Gán StationID nếu có liên kết
-                            context.T_USER_APP.Add(model.UserApp);
+                            
 
                             // Thêm danh sách Nozzle vào T_NOZZLE
                             foreach (var nozzle in model.Nozzles)
@@ -134,6 +92,8 @@ namespace MD_ACC.Controllers
                                 nozzle.StationID = stationId; // Gán StationID cho mỗi Nozzle
                                 context.T_NOZZLE.Add(nozzle);
                             }
+
+                            context.T_USER_APP.Add(model.UserApp);
 
                             // Lưu thay đổi
                             context.SaveChanges();
@@ -148,6 +108,7 @@ namespace MD_ACC.Controllers
                             // Rollback transaction nếu có lỗi
                             transaction.Rollback();
                             ModelState.AddModelError("", $"Lỗi khi lưu dữ liệu: {ex.Message}");
+                            //throw;
                         }
                     }
                 }
