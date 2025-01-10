@@ -82,21 +82,34 @@ namespace MD_ACC.Controllers
                             context.T_STATION.Add(model.Station);
                             context.SaveChanges();
 
+                            // Tạo user mặc định khi tạo một trạm
+                            T_USER_APP mUser = new T_USER_APP();
+                            mUser.UserName = model.Station.CompanyID.Trim()+"-"+model.Station.StationID.Trim();
+                            mUser.Email = "abc@gmail.com";
+                            mUser.Password = "12345";
+                            mUser.FullName = mUser.UserName;
+                            mUser.PhoneNumber = "";
+                            mUser.State = 1;
+                            mUser.NStationID = model.Station.PK_ID;
+                            mUser.StationID = model.Station.StationID.Trim();
+                            context.T_USER_APP.Add(mUser);
+                            context.Entry(mUser).State = EntityState.Added;
+                            context.SaveChanges();   
                             // Lấy ID vừa được tạo cho T_STATION
                             int stationId = model.Station.PK_ID;
                             
 
-                            // Thêm danh sách Nozzle vào T_NOZZLE
-                            foreach (var nozzle in model.Nozzles)
-                            {
-                                nozzle.StationID = stationId; // Gán StationID cho mỗi Nozzle
-                                context.T_NOZZLE.Add(nozzle);
-                            }
+                            //// Thêm danh sách Nozzle vào T_NOZZLE
+                            //foreach (var nozzle in model.Nozzles)
+                            //{
+                            //    nozzle.StationID = stationId; // Gán StationID cho mỗi Nozzle
+                            //    context.T_NOZZLE.Add(nozzle);
+                            //}
 
-                            context.T_USER_APP.Add(model.UserApp);
+                            //context.T_USER_APP.Add(model.UserApp);
 
                             // Lưu thay đổi
-                            context.SaveChanges();
+                            //context.SaveChanges();
 
                             // Commit transaction
                             transaction.Commit();

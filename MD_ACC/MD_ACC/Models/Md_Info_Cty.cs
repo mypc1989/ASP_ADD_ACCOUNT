@@ -19,21 +19,21 @@ namespace MD_ACC.Models
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<T_NOZZLE>()
-                .Property(e => e.ID)
-                .IsFixedLength();
+            //modelBuilder.Entity<T_NOZZLE>()
+            //    .Property(e => e.ID)
+            //    .IsFixedLength();
 
-            modelBuilder.Entity<T_USER_APP>()
-                .Property(e => e.Email)
-                .IsFixedLength();
+            //modelBuilder.Entity<T_USER_APP>()
+            //    .Property(e => e.Email)
+            //    .IsFixedLength();
 
-            modelBuilder.Entity<T_USER_APP>()
-                .Property(e => e.PhoneNumber)
-                .IsFixedLength();
+            //modelBuilder.Entity<T_USER_APP>()
+            //    .Property(e => e.PhoneNumber)
+            //    .IsFixedLength();
 
-            modelBuilder.Entity<T_USER_APP>()
-                .Property(e => e.StationID)
-                .IsFixedLength();
+            //modelBuilder.Entity<T_USER_APP>()
+            //    .Property(e => e.StationID)
+            //    .IsFixedLength();
         }
     }
 }

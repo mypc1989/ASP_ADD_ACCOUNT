@@ -9,6 +9,7 @@ namespace MD_ACC.Models
     public partial class T_USER_APP
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public string PK_ID { get; set; }
 
         [StringLength(50)]
